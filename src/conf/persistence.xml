@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
   <persistence-unit name="LearningAgreementPU" transaction-type="RESOURCE_LOCAL">
-  <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-       <class>Antrag</class>
-    <class>Antragsposition</class>
-    <class>Heimathochschule</class>
-    <class>Hochschule</class>
-    <class>LearningAgreement</class>
-    <class>LearningAgreementPosition</class>
-    <class>Lehrveranstaltung</class>
-    <class>LehrveranstaltungAusland</class>
-    <class>LehrveranstaltungInland</class>
-    <class>PartnerHochschule</class>
-    <class>Student</class>
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>fachklassen.LehrveranstaltungInland</class>
+    <class>fachklassen.Student</class>
+    <class>fachklassen.Heimathochschule</class>
+    <class>fachklassen.Antrag</class>
+    <class>fachklassen.LearningAgreementPosition</class>
+    <class>fachklassen.LearningAgreement</class>
+    <class>fachklassen.PartnerHochschule</class>
+    <class>fachklassen.LehrveranstaltungAusland</class>
+    <class>fachklassen.Antragsposition</class>
+    <class>fachklassen.Lehrveranstaltung</class>
+    <class>fachklassen.Hochschule</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/learningagreement?zeroDateTimeBehavior=convertToNull"/>
@@ -22,7 +22,6 @@
       <property name="javax.persistence.schema-generation.database.action" value="create-tables"/>
       <property name="eclipselink.ddl-generation" value="create-tables"/>
       <property name="eclipselink.logging.level" value="FINEST"/>
-    
     </properties>
   </persistence-unit>
 </persistence>

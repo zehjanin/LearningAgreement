@@ -1,19 +1,21 @@
+package fachklassen;
+
 
 import java.io.Serializable;
 import java.util.Collection;
-import javax.persistence.Basic;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
 @Entity
-public class LehrveranstaltungInland extends Lehrveranstaltung implements Serializable {
+public class LehrveranstaltungAusland extends Lehrveranstaltung implements Serializable {
 
-    @OneToMany(targetEntity = LearningAgreementPosition.class,mappedBy = "lehrveranstaltungInland1")
+    @OneToMany(targetEntity = LearningAgreementPosition.class,mappedBy = "lehrveranstaltungAusland1")
     private Collection<LearningAgreementPosition> learningAgreementPosition1;
-    @Basic
-    private String noteInland;
+    @ElementCollection
+    private Collection<String> noteAusland;
 
-    public LehrveranstaltungInland() {
+    public LehrveranstaltungAusland() {
 
     }
    
@@ -25,11 +27,11 @@ public class LehrveranstaltungInland extends Lehrveranstaltung implements Serial
         this.learningAgreementPosition1 = learningAgreementPosition1;
     }
    
-    public String getNoteInland() {
-        return this.noteInland;
+    public Collection<String> getNoteAusland() {
+        return this.noteAusland;
     }
 
-    public void setNoteInland(String noteInland) {
-        this.noteInland = noteInland;
+    public void setNoteAusland(Collection<String> noteAusland) {
+        this.noteAusland = noteAusland;
     }
 }

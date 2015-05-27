@@ -1,3 +1,5 @@
+package fachklassen;
+
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

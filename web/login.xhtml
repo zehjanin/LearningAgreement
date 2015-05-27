@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+        <head>
+            <link rel="stylesheet" type="text/css" href="basic.css"/>
+            <title>
+                <h:outputText value="Login"/>
+            </title>
+        </head>
+        <body>
+            <h:form id="login">
+                <h:panelGrid  columns="2" styleClass="borderTable" headerClass="panelHeading">
+                    <f:facet name="header">
+                        <h:outputText value="Bitte einloggen" />
+                    </f:facet>
+                    <h:outputLabel for="matrikelnummer" value="Matrikelnummer:}"/>
+                    <h:panelGroup>
+                        <h:inputText id="matrikelnummer" required="true"
+                                     value="#{loginBean.matrikelnummer}"/>
+                        <h:message for="kundennummer" errorClass="meldung"/>
+                    </h:panelGroup>
+                    <h:outputLabel for="passwort" value="Passwort:"/>
+                    <h:panelGroup>
+                        <h:inputSecret id="passwort" required="true"
+                                       value="#{loginBean.passwort}" />
+                        <h:message for="passwort" errorClass="meldung"/>
+                    </h:panelGroup>
+                </h:panelGrid>
+                <h:commandButton value="Login" id="loginButton"
+                                 action="#{loginBean.login}"/>
+                <h:message for="loginButton" errorClass="error"/>
+            </h:form>
+          </body>
+ </html>
+
