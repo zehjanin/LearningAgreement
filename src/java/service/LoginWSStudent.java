@@ -10,24 +10,24 @@ package service;
  */
 public class LoginWSStudent {
     
-    private int kundenNummer;
+    private String benutzername;
     private String name;
     private String errorLogin;
 
     public LoginWSStudent() {
     }
 
-    public LoginWSStudent(int kundenNummer, String name) {
-        this.kundenNummer = kundenNummer;
+    public LoginWSStudent(String benutzername, String name) {
+        this.benutzername = benutzername;
         this.name = name;
     }    
 
-    public int getKundenNummer() {
-        return kundenNummer;
+    public String getBenutzername() {
+        return benutzername;
     }
 
-    public void setKundenNummer(int kundenNummer) {
-        this.kundenNummer = kundenNummer;
+    public void setBenutzername(String benutzername) {
+        this.benutzername = benutzername;
     }
 
     public String getName() {

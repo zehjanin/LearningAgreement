@@ -4,22 +4,18 @@ package fachklassen;
 import java.io.Serializable;
 import java.util.Collection;
 import javax.persistence.Basic;
-import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.ManyToMany;
+
+import javax.persistence.OneToMany;
 
 @Entity
-@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn
 public class Hochschule implements Serializable {
 
     @Id
     private Long hochschulnummer;
-    @ManyToMany(targetEntity = Student.class,mappedBy = "hochschule1")
-    private Collection<Student> student1;
+    @OneToMany(targetEntity = Student.class,mappedBy = "hochschule")
+    private Collection<Student> student;
     @Basic
     private String name;
     @Basic
@@ -37,12 +33,12 @@ public class Hochschule implements Serializable {
         this.hochschulnummer = hochschulnummer;
     }
    
-    public Collection<Student> getStudent1() {
-        return this.student1;
+    public Collection<Student> getStudent() {
+        return this.student;
     }
 
-    public void setStudent1(Collection<Student> student1) {
-        this.student1 = student1;
+    public void setStudent(Collection<Student> student) {
+        this.student = student;
     }
    
     public String getName() {

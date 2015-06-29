@@ -3,6 +3,7 @@ package fachklassen;
 
 import java.io.Serializable;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
@@ -13,13 +14,17 @@ public class Antragsposition implements Serializable {
 
     @Id
     private Long positionsnnummer;
-    @OneToOne(targetEntity = LearningAgreement.class,mappedBy = "antragsposition1")
+    @OneToOne(targetEntity = LearningAgreement.class,mappedBy = "antragsposition1", cascade = CascadeType.ALL)
     private LearningAgreement learningAgreement1;
     @Basic
     private String statusAntragsposition;
     @ManyToOne(targetEntity = Antrag.class)
-    private Antrag antrag1;
+    private Antrag antrag;
+    
+    @ManyToOne (targetEntity = Hochschule.class)
+    private Hochschule hochschule;
 
+  
     public Antragsposition() {
 
     }
@@ -48,11 +53,20 @@ public class Antragsposition implements Serializable {
         this.statusAntragsposition = statusAntragsposition;
     }
    
-    public Antrag getAntrag1() {
-        return this.antrag1;
+    public Antrag getAntrag() {
+        return this.antrag;
     }
 
-    public void setAntrag1(Antrag antrag1) {
-        this.antrag1 = antrag1;
+    public void setAntrag(Antrag antrag) {
+        this.antrag = antrag;
     }
+    
+      public Hochschule getHochschule() {
+        return hochschule;
+    }
+
+    public void setHochschule(Hochschule hochschule) {
+        this.hochschule = hochschule;
+    }
+
 }

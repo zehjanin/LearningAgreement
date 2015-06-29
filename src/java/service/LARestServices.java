@@ -4,6 +4,7 @@
  */
 package service;
 
+import controller.LoginHandler;
 import fachklassen.Student;
 import java.util.Date;
 import javax.ejb.EJB;
@@ -21,10 +22,10 @@ import fachklassen.Student;
  * @author karl-heinz.rau
  */
 @Stateless
-@Path("bankRestServices")
+@Path("laRestServices")
 public class LARestServices {
     @EJB
-    BankHandler bankHandler;
+    LoginHandler laHandler;
 
     public LARestServices() {
     }   
@@ -33,27 +34,27 @@ public class LARestServices {
     @Path("/loginJson/{kdnr}/{pw}")
     @Consumes ("application/json")
     @Produces({"application/json"})
-    public LoginWSStudent loginJson(@PathParam("kdnr") int kundennummer, @PathParam("pw") String passwort) {
-        Student student = bankHandler.login(kundennummer, passwort);
+    public LoginWSStudent loginJson(@PathParam("kdnr") String benutzername, @PathParam("pw") String passwort) {
+        Student student = laHandler.login(benutzername, passwort);
         LoginWSStudent loginWSStudent=new LoginWSStudent();
         if (student == null) {
             loginWSStudent.setErrorLogin("KundenNummer oder Passwort falsch");
         }
         else{
-            loginWSStudent.setKundenNummer(student.getKundennummer());
-            loginWSStudent.setName(student.getName());
+            loginWSStudent.setBenutzername(student.getBenutzername());
+            loginWSStudent.setName(student.getNachname());
         }
         return loginWSStudent;
     }    
-    
+   /* 
     @GET
     @Path("/kontoUebersichtJson/{kdnr}")
-    @Produces({"application/json"})
+    //@Produces({"application/json"})
     public KontoUebersichtWSUebersicht getKontoUebersichtJson(
             @PathParam("kdnr") int kundennummer) {
         KontoUebersichtWSUebersicht kontoUebersicht = 
                 new KontoUebersichtWSUebersicht();
-        Kunde kunde = bankHandler.findeKunde(kundennummer);
+        Kunde kunde = laHandler.findeKunde(kundennummer);
         kontoUebersicht.setKundenNummer(kundennummer);
         kontoUebersicht.setName(kunde.getName());
         for (Konto konto : kunde.getKontenliste()) {
@@ -78,7 +79,7 @@ public class LARestServices {
             ) {
         UeberweisungWS ueberweisungWS=new UeberweisungWS();
         try {
-            Ueberweisung ueberweisung=bankHandler.
+            Ueberweisung ueberweisung=laHandler.
                     ueberweisen(vonKontoNummer, nachKontoNumer, betrag, new Date(datum), kundenNummer);
             ueberweisungWS.setBetrag(ueberweisung.getBetrag());
             ueberweisungWS.setVonKonto(ueberweisung.getVonKonto().getKontonummer());
@@ -97,5 +98,5 @@ public class LARestServices {
         finally{
             return ueberweisungWS;
         }
-    }    
+    }  */  
 }

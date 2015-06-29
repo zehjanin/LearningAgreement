@@ -7,18 +7,20 @@ import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 
 @Entity
+ @NamedQuery(name="findeStudentMitPasswort", query="SELECT s FROM Student s WHERE s.benutzername=:benutzername and s.passwort=:passwort ")
 public class Student implements Serializable {
 
     @Basic
     private String studiengang;
     @Basic
     private Date geburtstdatum;
-    @ManyToMany(targetEntity = Hochschule.class)
-    private Collection<Hochschule> hochschule1;
+    @ManyToOne(targetEntity = Hochschule.class)
+    private Hochschule hochschule;
     @Basic
     private String passwort;
     @Basic
@@ -32,7 +34,7 @@ public class Student implements Serializable {
     @Basic
     private String nachname;
     @OneToOne(targetEntity = Antrag.class)
-    private Antrag antrag1;
+    private Antrag antrag;
     @Id
     private int matrikelnummer;
     @Basic
@@ -58,12 +60,12 @@ public class Student implements Serializable {
         this.geburtstdatum = geburtstdatum;
     }
    
-    public Collection<Hochschule> getHochschule1() {
-        return this.hochschule1;
+    public Hochschule getHochschule() {
+        return this.hochschule;
     }
 
-    public void setHochschule1(Collection<Hochschule> hochschule1) {
-        this.hochschule1 = hochschule1;
+    public void setHochschule(Hochschule hochschule) {
+        this.hochschule = hochschule;
     }
    
     public String getPasswort() {
@@ -114,12 +116,12 @@ public class Student implements Serializable {
         this.nachname = nachname;
     }
    
-    public Antrag getAntrag1() {
-        return this.antrag1;
+    public Antrag getAntrag() {
+        return this.antrag;
     }
 
-    public void setAntrag1(Antrag antrag1) {
-        this.antrag1 = antrag1;
+    public void setAntrag(Antrag antrag) {
+        this.antrag = antrag;
     }
    
     public int getMatrikelnummer() {

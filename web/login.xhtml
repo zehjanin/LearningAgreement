@@ -6,7 +6,7 @@
         <head>
             <link rel="stylesheet" type="text/css" href="basic.css"/>
             <title>
-                <h:outputText value="Login"/>
+                <h:outputText value="Learning Agreement Bearbeiten"/>
             </title>
         </head>
         <body>
@@ -15,16 +15,16 @@
                     <f:facet name="header">
                         <h:outputText value="Bitte einloggen" />
                     </f:facet>
-                    <h:outputLabel for="matrikelnummer" value="Matrikelnummer:}"/>
+                    <h:outputLabel for="benutzername" value="Benutzername:}"/>
                     <h:panelGroup>
-                        <h:inputText id="matrikelnummer" required="true"
-                                     value="#{loginBean.matrikelnummer}"/>
+                        <h:inputText id="benutzername" required="true"
+                                     value="#{loginBean.student.benutzername}"/>
                         <h:message for="kundennummer" errorClass="meldung"/>
                     </h:panelGroup>
                     <h:outputLabel for="passwort" value="Passwort:"/>
                     <h:panelGroup>
                         <h:inputSecret id="passwort" required="true"
-                                       value="#{loginBean.passwort}" />
+                                       value="#{loginBean.student.passwort}" />
                         <h:message for="passwort" errorClass="meldung"/>
                     </h:panelGroup>
                 </h:panelGrid>
@@ -32,6 +32,6 @@
                                  action="#{loginBean.login}"/>
                 <h:message for="loginButton" errorClass="error"/>
             </h:form>
-          </body>
+        </body>
  </html>
 

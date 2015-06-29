@@ -12,9 +12,9 @@ import javax.persistence.OneToOne;
 @Entity
 public class Antrag implements Serializable {
 
-    @OneToMany(targetEntity = Antragsposition.class,mappedBy = "antrag1")
-    private Collection<Antragsposition> antragsposition1;
-    @OneToOne(targetEntity = Student.class,mappedBy = "antrag1")
+    @OneToMany(targetEntity = Antragsposition.class,mappedBy = "antrag")
+    private Collection<Antragsposition> antragsposition;
+    @OneToOne(targetEntity = Student.class,mappedBy = "antrag")
     private Student student1;
     @Basic
     private String auslandsaufenthaltSemester;
@@ -25,12 +25,12 @@ public class Antrag implements Serializable {
 
     }
    
-    public Collection<Antragsposition> getAntragsposition1() {
-        return this.antragsposition1;
+    public Collection<Antragsposition> getAntragsposition() {
+        return this.antragsposition;
     }
 
-    public void setAntragsposition1(Collection<Antragsposition> antragsposition1) {
-        this.antragsposition1 = antragsposition1;
+    public void setAntragsposition(Collection<Antragsposition> antragsposition) {
+        this.antragsposition = antragsposition;
     }
    
     public Student getStudent1() {

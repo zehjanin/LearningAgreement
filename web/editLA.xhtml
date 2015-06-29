@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+        <head>
+            <link rel="stylesheet" type="text/css" href="basic.css"/>
+            <title>
+                <h:outputText value="Learning Agreement bearbeiten"/>
+            </title>
+        </head>
+        <body>
+            Name: <h:outputText value="#{loginBean.student.vorname}"/> <h:outputText value="#{loginBean.student.nachname}"/> 
+            <br/>
+            Heimathochschule: <h:outputText value="#{loginBean.student.hochschule.name}"/><br/>
+            Partnerhochschule:<h:outputText value="#{loginBean.antragsposition.hochschule.name}"/>  <br/>
+            Studiengang:<h:outputText value="#{loginBean.student.studiengang}"/>  <br/>
+            Fakultät:<h:outputText value="#{loginBean.student.fakultaet}"/>  <br/>
+            Semester des Auslandsaufenthalts:<h:outputText value="#{loginBean.student.antrag.auslandsaufenthaltSemester}"/>  <br/>
+            Antragspositionsnummer: <h:outputText value="#{loginBean.antragsposition.positionsnnummer}"/><br/>
+            LearningAgrrementNummer: <h:outputText value="#{loginBean.la.learningAgreementNummer}"/>
+        </body>
+ </html>
+

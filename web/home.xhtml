@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        Hallo <h:outputText value="#{loginBean.student.vorname}"/> <h:outputText value="#{loginBean.student.nachname}"/>
+        <h:form id="editla">
+        <h:dataTable value="#{loginBean.student.antrag.antragsposition}" var="a"	>
+ 
+    			<h:column>
+    				<!-- column header -->
+    				<f:facet name="header">Antrags-ID</f:facet>
+    				<!-- row record -->
+    				#{a.positionsnnummer}
+    			</h:column>
+ 
+    			<h:column>
+    				<f:facet name="header">Antragsstatus</f:facet>
+    				#{a.statusAntragsposition}
+    			</h:column>
+ 
+    			<h:column>
+    				<f:facet name="header">Partnerhochschule</f:facet>
+    				#{a.hochschule.name}
+    			</h:column>
+            
+                        <h:column>
+    				<h:commandButton value="LA bearbeiten" id="loginButton"
+                                                 action="#{loginBean.weiterleitungLA(a)}"/>
+    			</h:column>
+ 
+    		</h:dataTable>
+              </h:form>
+    </h:body>
+</html>
+

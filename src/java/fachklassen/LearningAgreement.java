@@ -4,19 +4,23 @@ package fachklassen;
 import java.io.Serializable;
 import java.util.Collection;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
-@Entity
+@Entity ()
 public class LearningAgreement implements Serializable {
 
     @OneToMany(targetEntity = LearningAgreementPosition.class,mappedBy = "learningAgreement1")
     private Collection<LearningAgreementPosition> learningAgreementPosition1;
     @OneToOne(targetEntity = Antragsposition.class)
     private Antragsposition antragsposition1;
-    @Id
+    @Id 
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private Long learningAgreementNummer;
     @Basic
     private String endeAuslandsaufenthalt;
