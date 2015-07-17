@@ -7,6 +7,7 @@ package controller;
 
 import fachklassen.Antragsposition;
 import fachklassen.LearningAgreement;
+import fachklassen.LearningAgreementPosition;
 import javax.ejb.Stateless;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -42,9 +43,20 @@ public class LAHandler {
             
         }
     }
+    
+    public void loescheLAPosition(LearningAgreementPosition laposition){
+            laposition=em.merge(laposition);
+           em.remove(laposition);
+    }
 
     public void speichereNeuesLA(LearningAgreement la) {
         em.persist (la);
+    }
+    
+    public LearningAgreement findeLA (long lanummer){
+        LearningAgreement la;
+        la = em.find(LearningAgreement.class, lanummer);
+        return la;
     }
     
 }

@@ -9,13 +9,16 @@ import controller.LAHandler;
 import controller.LoginHandler;
 import fachklassen.Antragsposition;
 import fachklassen.LearningAgreement;
+import fachklassen.LearningAgreementPosition;
 import fachklassen.Student;
 import java.io.Serializable;
+import java.util.ArrayList;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 
 /**
  *
@@ -32,6 +35,7 @@ public class loginBean implements Serializable{
     private Student student;
     private Antragsposition antragsposition;
     private LearningAgreement la;
+    
     
     public Antragsposition getAntragsposition() {
         return antragsposition;
@@ -53,6 +57,7 @@ public class loginBean implements Serializable{
     public loginBean() {
         student=new Student();
         la = new LearningAgreement();
+      
     }
     
 
@@ -86,6 +91,13 @@ public class loginBean implements Serializable{
         }
         return "editLA.xhtml";
     }
-  
+   public String positionLoeschen (LearningAgreementPosition lap){
+       lAHandler.loescheLAPosition(lap);
+       //LearningAgreement la2 =lAHandler.findeLA(lap.getLearningAgreement1().getLearningAgreementNummer());
+       //la=la2;
+       la.getLearningAgreementPosition1().remove(lap);
+       FacesContext.getCurrentInstance().renderResponse();
+        return "editLA.xhtml";
+    }
    
 }

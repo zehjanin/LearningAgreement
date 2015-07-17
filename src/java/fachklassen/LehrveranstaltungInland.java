@@ -13,7 +13,7 @@ public class LehrveranstaltungInland extends Lehrveranstaltung implements Serial
     @OneToMany(targetEntity = LearningAgreementPosition.class,mappedBy = "lehrveranstaltungInland1")
     private Collection<LearningAgreementPosition> learningAgreementPosition1;
     @Basic
-    private String noteInland;
+    private int ectsInland;
 
     public LehrveranstaltungInland() {
 
@@ -27,11 +27,11 @@ public class LehrveranstaltungInland extends Lehrveranstaltung implements Serial
         this.learningAgreementPosition1 = learningAgreementPosition1;
     }
    
-    public String getNoteInland() {
-        return this.noteInland;
+    public int getEctsInland() {
+        return this.ectsInland;
     }
 
-    public void setNoteInland(String noteInland) {
-        this.noteInland = noteInland;
+    public void setEctsInland(int ectsInland) {
+        this.ectsInland = ectsInland;
     }
 }

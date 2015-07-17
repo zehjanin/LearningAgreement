@@ -19,6 +19,40 @@
             Semester des Auslandsaufenthalts:<h:outputText value="#{loginBean.student.antrag.auslandsaufenthaltSemester}"/>  <br/>
             Antragspositionsnummer: <h:outputText value="#{loginBean.antragsposition.positionsnnummer}"/><br/>
             LearningAgrrementNummer: <h:outputText value="#{loginBean.la.learningAgreementNummer}"/>
+            <h:form id="editLA"> 
+            <h:dataTable value="#{loginBean.la.learningAgreementPosition1}" var="la"	>
+ 
+    			<h:column>
+    				<!-- column header -->
+    				<f:facet name="header">LV Heimathochschule</f:facet>
+    				<!-- row record -->
+    				#{la.lehrveranstaltungInland1}
+    			</h:column>
+                        <h:column>
+    				<!-- column header -->
+    				<f:facet name="header">ECTS Heimathochschule</f:facet>
+    				<!-- row record -->
+    				#{la.lehrveranstaltungInland1.credits}
+    			</h:column>
+ 
+    			<h:column>
+    				<f:facet name="header">LV Partnerhochchschule</f:facet>
+    				#{la.lehrveranstaltungAusland1}
+    			</h:column>
+ 
+    			<h:column>
+    				<f:facet name="header">ECTS Partnerhochschule</f:facet>
+    				#{la.lehrveranstaltungAusland1.credits}
+    			</h:column>
+                        <h:column>
+    				<h:commandButton value="Löschen" id="loginButton"
+                                                 action="#{loginBean.positionLoeschen(la)}"/>
+    			</h:column>
+            
+                      
+    		</h:dataTable>
+              
+                 </h:form> 
         </body>
  </html>
 

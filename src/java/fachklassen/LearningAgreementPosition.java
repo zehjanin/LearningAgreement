@@ -2,7 +2,6 @@ package fachklassen;
 
 
 import java.io.Serializable;
-import javax.persistence.Basic;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
@@ -18,8 +17,8 @@ public class LearningAgreementPosition implements Serializable {
     private Long positionsnummer;
     @ManyToOne(targetEntity = LehrveranstaltungInland.class)
     private LehrveranstaltungInland lehrveranstaltungInland1;
-    @Basic
-    private String statusLearningAgreementPosition;
+    /*@Basic
+    private String statusLearningAgreementPosition;*/
 
     public LearningAgreementPosition() {
 
@@ -57,11 +56,11 @@ public class LearningAgreementPosition implements Serializable {
         this.lehrveranstaltungInland1 = lehrveranstaltungInland1;
     }
    
-    public String getStatusLearningAgreementPosition() {
+  /*  public String getStatusLearningAgreementPosition() {
         return this.statusLearningAgreementPosition;
     }
 
     public void setStatusLearningAgreementPosition(String statusLearningAgreementPosition) {
         this.statusLearningAgreementPosition = statusLearningAgreementPosition;
-    }
+    }*/
 }
