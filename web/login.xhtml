@@ -4,34 +4,51 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core">
         <head>
-            <link rel="stylesheet" type="text/css" href="basic.css"/>
-            <title>
-                <h:outputText value="Learning Agreement Bearbeiten"/>
-            </title>
+            <link rel="stylesheet" type="text/css" href="Layout.css"/>
+            <title>Learning Agreement - Login"/></title>
         </head>
-        <body>
+    <body>
+        <div align="center">
             <h:form id="login">
-                <h:panelGrid  columns="2" styleClass="borderTable" headerClass="panelHeading">
+                
+                <h:panelGrid  columns="2" styleClass="borderTable" headerClass="panelHeading" border="2" style="
+                              font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+                              font-size: small;">
                     <f:facet name="header">
-                        <h:outputText value="Bitte einloggen" />
+                        <h:graphicImage url="https://dl.dropboxusercontent.com/u/31656028/Logo_HSPforzheim.png" width="100%"></h:graphicImage><br/>
+                        <h:outputText value="Willkommen zum Learning-Agreement-Erfassen-System der Hochschule Pforzheim&lt;br /&gt;&lt;br /&gt;
+                                            Hier können Sie Ihr Learning Agremment anlegen bzw. bearbeiten.&lt;br /&gt;&lt;br /&gt;
+                                            Bei Fragen wenden Sie sich bitte an das: &lt;br /&gt;
+                                            Studicenter&lt;br /&gt;
+                                            Tiefenbronnerstr. 65&lt;br /&gt;
+                                            75175 Pforzheim
+                                            Tel.: +49 7231 28-6940&lt;br /&gt;
+                                            Fax: +49 7231 28-6666&lt;br /&gt;
+                                            E-Mail pruefungsamt@hs-pforzheim.de&lt;br /&gt;&lt;br /&gt;
+                                            Öffnungszeiten:&lt;br /&gt;
+                                            Montag - Donnerstag: 9:00 bis 16:00 Uhr&lt;br /&gt;
+                                            Freitag: 9:00 bis 12:00 Uhr&lt;br /&gt;&lt;br /&gt;" escape="false"/> 
+                        
                     </f:facet>
                     <h:outputLabel for="benutzername" value="Benutzername:"/>
                     <h:panelGroup>
                         <h:inputText id="benutzername" required="true"
-                                     value="#{loginBean.student.benutzername}"/>
-                        <h:message for="kundennummer" errorClass="meldung"/>
+                                        value="#{loginBean.student.benutzername}" requiredMessage="Bitte einen gültigen Benutzername eingeben."/>
+                        <h:message id="benutzernameMsg" for="benutzername"/>
                     </h:panelGroup>
                     <h:outputLabel for="passwort" value="Passwort:"/>
                     <h:panelGroup>
+                    
                         <h:inputSecret id="passwort" required="true"
-                                       value="#{loginBean.student.passwort}" />
-                        <h:message for="passwort" errorClass="meldung"/>
+                                       value="#{loginBean.student.passwort}" requiredMessage="Bitte ein gültiges Passwort eingeben." />
+                        <h:message id="passwortMsg" for="passwort"/>
                     </h:panelGroup>
                 </h:panelGrid>
                 <h:commandButton value="Login" id="loginButton"
-                                 action="#{loginBean.login}"/>
+                                    action="#{loginBean.login}"/>
                 <h:message for="loginButton" errorClass="error"/>
             </h:form>
-        </body>
+        </div>        
+    </body>
  </html>
 

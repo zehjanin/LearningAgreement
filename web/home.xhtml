@@ -3,13 +3,59 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
-        <title>Facelet Title</title>
+        <link rel="stylesheet" type="text/css" href="basic.css"/>
+        <title>Learning Agreement anlegen / bearbeiten</title>
     </h:head>
-    <h:body>
-        Hallo <h:outputText value="#{loginBean.student.vorname}"/> <h:outputText value="#{loginBean.student.nachname}"/>
+
+    <h:body>           
+             <h:graphicImage url="https://dl.dropboxusercontent.com/u/31656028/Logo_HSPforzheim.png" width="50%"></h:graphicImage><p></p>
+        <h:form id="Welcome">
+                <h:outputText value="Willkommen, " style="font-weight:bold"/>
+                <h:outputText value="#{loginBean.student.vorname} " style="font-weight:bold"/>
+                <h:outputText value="#{loginBean.student.nachname}" style="font-weight:bold"/>
+        </h:form><p></p>
+
+        <h:form id="Daten">
+            <h:outputText value="Persönliche Daten:"/>
+                 <h:panelGrid columns="1" styleClass="borderTable" headerClass="panelHeading" border="2" style="
+                              font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+                              font-size: small;">
+                <h:panelGroup>
+                    <h:outputLabel value="Vorname:"/>
+                    <h:outputText value=" #{loginBean.student.vorname} "/>
+                </h:panelGroup>
+                 <h:panelGroup>
+                     <h:outputLabel value="Nachname:"/>
+                     <h:outputText value=" #{loginBean.student.nachname} "/>
+                </h:panelGroup>
+                <h:panelGroup>
+                    <h:outputLabel value="Geburtsdatum:"/>
+                    <h:outputText value=" #{loginBean.student.geburtstdatum}"/>
+                </h:panelGroup>
+                <h:panelGroup>
+                    <h:outputLabel value="Geburtsort:"/>
+                   <h:outputText value=" #{loginBean.student.geburtsort}"/>
+                </h:panelGroup>
+                <h:panelGroup>
+                    <h:outputLabel value="Studiengang:"/>
+                    <h:outputText value=" #{loginBean.student.studiengang}"/>
+                </h:panelGroup>
+                <h:panelGroup>
+                    <h:outputLabel value="Fakultät:"/>
+                    <h:outputText value=" #{loginBean.student.fakultaet}"/>
+                </h:panelGroup>
+           
+                 </h:panelGrid>          
+        </h:form><p></p>
+                      
         <h:form id="editla">
+             <h:outputText value="Übersicht der Anträge für Auslandssemester. Sofern der Antrag genehmigt wurde, kann ein Lerarning Agreement angelegt werden."/>
+                 <h:panelGrid columns="1" styleClass="borderTable" headerClass="panelHeading" border="2" style="
+                              font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+                              font-size: small;">
         <h:dataTable value="#{loginBean.student.antrag.antragsposition}" var="a"	>
  
     			<h:column>
@@ -33,8 +79,8 @@
     				<h:commandButton value="LA bearbeiten" id="loginButton"
                                                  action="#{loginBean.weiterleitungLA(a)}"/>
     			</h:column>
- 
-    		</h:dataTable>
+              		</h:dataTable>
+            </h:panelGrid>
               </h:form>
     </h:body>
 </html>
