@@ -25,6 +25,7 @@ import javax.faces.context.FacesContext;
  *
  * @author Janina
  */
+//Fachkonzeptschicht 
 @ManagedBean
 @SessionScoped
 public class loginBean implements Serializable {
@@ -38,6 +39,7 @@ public class loginBean implements Serializable {
     private Antragsposition antragsposition;
     private LearningAgreement la;
 
+    //getter-/setter
     public Antragsposition getAntragsposition() {
         return antragsposition;
     }
@@ -54,12 +56,13 @@ public class loginBean implements Serializable {
         this.la = la;
     }
 
+    //Objekterzeugung
     public loginBean() {
         student = new Student();
         la = new LearningAgreement();
-
     }
 
+    //getter-/setter
     public Student getStudent() {
         return student;
     }
@@ -74,6 +77,11 @@ public class loginBean implements Serializable {
 //        System.out.println(student.getBenutzername()+student.getNachname());
 //        return "home.xhtml";
 //    }
+    
+    //Übergabe der eingegebenen Benutzerdaten an loginHandler (Controller) - hier erfolgt Überprüfung mit Datenbank 
+    //Rückgabe von loginHandler; 
+    //alles ok: Login erfolgt (Weiterleitung zu home.xhtml)
+    //nicht ok: Fehlermeldung wird ausgegeben, Session wird ungültig (Weiterleitung zu login.xhtml) 
     public String login() throws Exception {
         this.student = loginHandler.login(this.student.getBenutzername(), this.student.getPasswort());
         if (this.student != null) {
@@ -86,6 +94,9 @@ public class loginBean implements Serializable {
         }
     }
 
+    //Überprüfung ob Antragsstatus = genehmigt; dann kann LA angelegt werden (Button funktioniert - Weiterleitung zu editLA.xhtml) 
+    //ansosnten wird Fehlermeldung ausgegeben 
+    //LA nicht vorhanden: Neues LA wird angelegt und gespeichert
     public String weiterleitungLA(Antragsposition a) {
         antragsposition = a;
         if (antragsposition.getStatusAntragsposition().equals("genehmigt")) {
@@ -93,10 +104,9 @@ public class loginBean implements Serializable {
                 la = antragsposition.getLearningAgreement1();
             } else {
                 la.setAntragsposition1(antragsposition);
-            //antragsposition.setLearningAgreement1(la);
+                //antragsposition.setLearningAgreement1(la);
                 //lAHandler.speichereAntragsposition(antragsposition);
                 lAHandler.speichereNeuesLA(la);
-
             }
             return "editLA.xhtml";
         } else {
@@ -107,13 +117,15 @@ public class loginBean implements Serializable {
 
     public String positionLoeschen(LearningAgreementPosition lap) {
         lAHandler.loescheLAPosition(lap);
-       //LearningAgreement la2 =lAHandler.findeLA(lap.getLearningAgreement1().getLearningAgreementNummer());
+        //LearningAgreement la2 =lAHandler.findeLA(lap.getLearningAgreement1().getLearningAgreementNummer());
         //la=la2;
         la.getLearningAgreementPosition1().remove(lap);
         FacesContext.getCurrentInstance().renderResponse();
         return "editLA.xhtml";
     }
 
+    //Studentenobjekt null setzen
+    //Session wird ungültig; Weiterleitung zu login.xhtml
     public void userLogout() throws Exception {
         student = null;
         FacesContext facesContext = FacesContext.getCurrentInstance();

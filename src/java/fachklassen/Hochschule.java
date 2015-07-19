@@ -1,6 +1,5 @@
 package fachklassen;
 
-
 import java.io.Serializable;
 import java.util.Collection;
 import javax.persistence.Basic;
@@ -9,13 +8,19 @@ import javax.persistence.Id;
 
 import javax.persistence.OneToMany;
 
+// Enitätsklasse - JPA zur Datenhaltung (Datenhaltungsschicht) 
 @Entity
 public class Hochschule implements Serializable {
 
+    //Festlegung Primärschlüsselattribut
     @Id
     private Long hochschulnummer;
-    @OneToMany(targetEntity = Student.class,mappedBy = "hochschule")
+
+    //Beziehungen der Tabellen in Datenbank 
+    @OneToMany(targetEntity = Student.class, mappedBy = "hochschule")
     private Collection<Student> student;
+
+    //Mapping der Attribute auf Datenbankspalten
     @Basic
     private String name;
     @Basic
@@ -24,7 +29,8 @@ public class Hochschule implements Serializable {
     public Hochschule() {
 
     }
-   
+
+    //Getter-/ Setter
     public Long getHochschulnummer() {
         return this.hochschulnummer;
     }
@@ -32,7 +38,7 @@ public class Hochschule implements Serializable {
     public void setHochschulnummer(Long hochschulnummer) {
         this.hochschulnummer = hochschulnummer;
     }
-   
+
     public Collection<Student> getStudent() {
         return this.student;
     }
@@ -40,7 +46,7 @@ public class Hochschule implements Serializable {
     public void setStudent(Collection<Student> student) {
         this.student = student;
     }
-   
+
     public String getName() {
         return this.name;
     }
@@ -48,7 +54,7 @@ public class Hochschule implements Serializable {
     public void setName(String name) {
         this.name = name;
     }
-   
+
     public String getLand() {
         return this.land;
     }

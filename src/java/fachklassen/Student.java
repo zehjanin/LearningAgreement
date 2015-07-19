@@ -1,6 +1,5 @@
 package fachklassen;
 
-
 import java.io.Serializable;
 import java.sql.Date;
 import java.util.Collection;
@@ -11,8 +10,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 
+// Enitätsklasse - JPA zur Datenhaltung (Datenhaltungsschicht) 
 @Entity
- @NamedQuery(name="findeStudentMitPasswort", query="SELECT s FROM Student s WHERE s.benutzername=:benutzername and s.passwort=:passwort ")
+@NamedQuery(name = "findeStudentMitPasswort", query = "SELECT s FROM Student s WHERE s.benutzername=:benutzername and s.passwort=:passwort ")
 public class Student implements Serializable {
 
     @Basic
@@ -43,7 +43,8 @@ public class Student implements Serializable {
     public Student() {
 
     }
-   
+
+    //Getter-/Setter
     public String getStudiengang() {
         return this.studiengang;
     }
@@ -51,7 +52,7 @@ public class Student implements Serializable {
     public void setStudiengang(String studiengang) {
         this.studiengang = studiengang;
     }
-   
+
     public Date getGeburtstdatum() {
         return this.geburtstdatum;
     }
@@ -59,7 +60,7 @@ public class Student implements Serializable {
     public void setGeburtstdatum(Date geburtstdatum) {
         this.geburtstdatum = geburtstdatum;
     }
-   
+
     public Hochschule getHochschule() {
         return this.hochschule;
     }
@@ -67,7 +68,7 @@ public class Student implements Serializable {
     public void setHochschule(Hochschule hochschule) {
         this.hochschule = hochschule;
     }
-   
+
     public String getPasswort() {
         return this.passwort;
     }
@@ -75,7 +76,7 @@ public class Student implements Serializable {
     public void setPasswort(String passwort) {
         this.passwort = passwort;
     }
-   
+
     public String getFakultaet() {
         return this.fakultaet;
     }
@@ -83,7 +84,7 @@ public class Student implements Serializable {
     public void setFakultaet(String fakultaet) {
         this.fakultaet = fakultaet;
     }
-   
+
     public Date getStudienbeginn() {
         return this.studienbeginn;
     }
@@ -91,7 +92,7 @@ public class Student implements Serializable {
     public void setStudienbeginn(Date studienbeginn) {
         this.studienbeginn = studienbeginn;
     }
-   
+
     public String getVorname() {
         return this.vorname;
     }
@@ -99,7 +100,7 @@ public class Student implements Serializable {
     public void setVorname(String vorname) {
         this.vorname = vorname;
     }
-   
+
     public String getGeburtsort() {
         return this.geburtsort;
     }
@@ -107,7 +108,7 @@ public class Student implements Serializable {
     public void setGeburtsort(String geburtsort) {
         this.geburtsort = geburtsort;
     }
-   
+
     public String getNachname() {
         return this.nachname;
     }
@@ -115,7 +116,7 @@ public class Student implements Serializable {
     public void setNachname(String nachname) {
         this.nachname = nachname;
     }
-   
+
     public Antrag getAntrag() {
         return this.antrag;
     }
@@ -123,7 +124,7 @@ public class Student implements Serializable {
     public void setAntrag(Antrag antrag) {
         this.antrag = antrag;
     }
-   
+
     public int getMatrikelnummer() {
         return this.matrikelnummer;
     }
@@ -131,7 +132,7 @@ public class Student implements Serializable {
     public void setMatrikelnummer(int matrikelnummer) {
         this.matrikelnummer = matrikelnummer;
     }
-   
+
     public String getBenutzername() {
         return this.benutzername;
     }
