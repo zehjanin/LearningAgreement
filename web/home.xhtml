@@ -11,25 +11,25 @@
     </h:head>
 
     <h:body>           
-             <h:graphicImage url="https://dl.dropboxusercontent.com/u/31656028/Logo_HSPforzheim.png" width="50%"></h:graphicImage><p></p>
+        <h:graphicImage url="https://dl.dropboxusercontent.com/u/31656028/Logo_HSPforzheim.png" width="50%"></h:graphicImage><p></p>           
         <h:form id="Welcome">
-                <h:outputText value="Willkommen, " style="font-weight:bold"/>
-                <h:outputText value="#{loginBean.student.vorname} " style="font-weight:bold"/>
-                <h:outputText value="#{loginBean.student.nachname}" style="font-weight:bold"/>
+            <h:outputText value="Willkommen, " style="font-weight:bold"/>
+            <h:outputText value="#{loginBean.student.vorname} " style="font-weight:bold"/>
+            <h:outputText value="#{loginBean.student.nachname}" style="font-weight:bold"/>
         </h:form><p></p>
 
         <h:form id="Daten">
             <h:outputText value="Persönliche Daten:"/>
-                 <h:panelGrid columns="1" styleClass="borderTable" headerClass="panelHeading" border="2" style="
-                              font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
-                              font-size: small;">
+            <h:panelGrid columns="1" styleClass="borderTable" headerClass="panelHeading" border="2" style="
+                         font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+                         font-size: small;">
                 <h:panelGroup>
                     <h:outputLabel value="Vorname:"/>
                     <h:outputText value=" #{loginBean.student.vorname} "/>
                 </h:panelGroup>
-                 <h:panelGroup>
-                     <h:outputLabel value="Nachname:"/>
-                     <h:outputText value=" #{loginBean.student.nachname} "/>
+                <h:panelGroup>
+                    <h:outputLabel value="Nachname:"/>
+                    <h:outputText value=" #{loginBean.student.nachname} "/>
                 </h:panelGroup>
                 <h:panelGroup>
                     <h:outputLabel value="Geburtsdatum:"/>
@@ -37,7 +37,7 @@
                 </h:panelGroup>
                 <h:panelGroup>
                     <h:outputLabel value="Geburtsort:"/>
-                   <h:outputText value=" #{loginBean.student.geburtsort}"/>
+                    <h:outputText value=" #{loginBean.student.geburtsort}"/>
                 </h:panelGroup>
                 <h:panelGroup>
                     <h:outputLabel value="Studiengang:"/>
@@ -47,41 +47,44 @@
                     <h:outputLabel value="Fakultät:"/>
                     <h:outputText value=" #{loginBean.student.fakultaet}"/>
                 </h:panelGroup>
-           
-                 </h:panelGrid>          
+
+            </h:panelGrid>          
         </h:form><p></p>
-                      
+
         <h:form id="editla">
-             <h:outputText value="Übersicht der Anträge für Auslandssemester. Sofern der Antrag genehmigt wurde, kann ein Lerarning Agreement angelegt werden."/>
-                 <h:panelGrid columns="1" styleClass="borderTable" headerClass="panelHeading" border="2" style="
-                              font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
-                              font-size: small;">
-        <h:dataTable value="#{loginBean.student.antrag.antragsposition}" var="a"	>
- 
-    			<h:column>
-    				<!-- column header -->
-    				<f:facet name="header">Antrags-ID</f:facet>
-    				<!-- row record -->
-    				#{a.positionsnnummer}
-    			</h:column>
- 
-    			<h:column>
-    				<f:facet name="header">Antragsstatus</f:facet>
-    				#{a.statusAntragsposition}
-    			</h:column>
- 
-    			<h:column>
-    				<f:facet name="header">Partnerhochschule</f:facet>
-    				#{a.hochschule.name}
-    			</h:column>
-            
-                        <h:column>
-    				<h:commandButton value="LA bearbeiten" id="loginButton"
-                                                 action="#{loginBean.weiterleitungLA(a)}"/>
-    			</h:column>
-              		</h:dataTable>
-            </h:panelGrid>
-              </h:form>
+            <h:outputText value="Übersicht der Anträge für Auslandssemester. Sofern der Antrag genehmigt wurde, kann ein Learning Agreement angelegt werden."/>
+            <h:panelGrid columns="1" styleClass="borderTable" headerClass="panelHeading" border="2" style="
+                         font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+                         font-size: small;">
+                <h:dataTable value="#{loginBean.student.antrag.antragsposition}" var="a"	>
+
+                    <h:column>
+                        <!-- column header -->
+                        <f:facet name="header">Antrags-ID</f:facet>
+                        <!-- row record -->
+                        #{a.positionsnnummer}
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">Antragsstatus</f:facet>
+                            #{a.statusAntragsposition}
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">Partnerhochschule</f:facet>
+                            #{a.hochschule.name}
+                    </h:column>
+
+                    <h:column>
+                        <h:commandButton value="LA anlegen" id="loginButton"
+                                         action="#{loginBean.weiterleitungLA(a)}"/>
+                    </h:column>
+                </h:dataTable>
+            </h:panelGrid> 
+
+        </h:form><p></p>
+        <h:form id="Logout">
+                    <h:commandButton actionListener="#{loginBean.userLogout}" value="Logout"/></h:form>
     </h:body>
 </html>
 

@@ -3,26 +3,26 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core">
-        <head>
-            <link rel="stylesheet" type="text/css" href="basic.css"/>
-            <title>
-                <h:outputText value="Learning Agreement bearbeiten"/>
-            </title>
-        </head>
-        <body>
-             <h:graphicImage url="https://dl.dropboxusercontent.com/u/31656028/Logo_HSPforzheim.png" width="50%"></h:graphicImage><p></p>
-             <h:form id="Daten">
+    <head>
+        <link rel="stylesheet" type="text/css" href="basic.css"/>
+        <title>
+            <h:outputText value="Learning Agreement bearbeiten"/>
+        </title>
+    </head>
+    <body>
+        <h:graphicImage url="https://dl.dropboxusercontent.com/u/31656028/Logo_HSPforzheim.png" width="50%"></h:graphicImage><p></p>
+        <h:form id="Daten">
             <h:outputText value="Persönliche Daten:"/>
-                 <h:panelGrid columns="1" styleClass="borderTable" headerClass="panelHeading" border="2" style="
-                              font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
-                              font-size: small;">
+            <h:panelGrid columns="1" styleClass="borderTable" headerClass="panelHeading" border="2" style="
+                         font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+                         font-size: small;">
                 <h:panelGroup>
                     <h:outputLabel value="Vorname:"/>
                     <h:outputText value=" #{loginBean.student.vorname} "/>
                 </h:panelGroup>
-                 <h:panelGroup>
-                     <h:outputLabel value="Nachname:"/>
-                     <h:outputText value=" #{loginBean.student.nachname} "/>
+                <h:panelGroup>
+                    <h:outputLabel value="Nachname:"/>
+                    <h:outputText value=" #{loginBean.student.nachname} "/>
                 </h:panelGroup>
                 <h:panelGroup>
                     <h:outputLabel value="Heimathochschule:"/>
@@ -40,58 +40,61 @@
                     <h:outputLabel value="Fakultät:"/>
                     <h:outputText value=" #{loginBean.student.fakultaet}"/>
                 </h:panelGroup>
-              <h:panelGroup>
+                <h:panelGroup>
                     <h:outputLabel value="Semester des Auslandsaufenthalts:"/>
                     <h:outputText value=" #{loginBean.student.antrag.auslandsaufenthaltSemester}"/>
-             </h:panelGroup>
-               <h:panelGroup>
+                </h:panelGroup>
+                <h:panelGroup>
                     <h:outputLabel value="Antragspositionsnummer:"/>
                     <h:outputText value=" #{loginBean.antragsposition.positionsnnummer}"/>
-             </h:panelGroup>
-                    <h:panelGroup>
+                </h:panelGroup>
+                <h:panelGroup>
                     <h:outputLabel value="Learning Agreement Nummer:"/>
                     <h:outputText value=" #{loginBean.la.learningAgreementNummer}"/>
-             </h:panelGroup>
-                 </h:panelGrid>          
+                </h:panelGroup>
+            </h:panelGrid>          
         </h:form><p></p>
 
-            <h:form id="editLA"> 
-                  <h:panelGrid columns="1" styleClass="borderTable" headerClass="panelHeading" border="2" style="
-                              font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
-                              font-size: small;">
-            <h:dataTable value="#{loginBean.la.learningAgreementPosition1}" var="la"	>
- 
-    			<h:column>
-    				<!-- column header -->
-    				<f:facet name="header">LV Heimathochschule</f:facet>
-    				<!-- row record -->
-    				#{la.lehrveranstaltungInland1}
-    			</h:column>
-                        <h:column>
-    				<!-- column header -->
-    				<f:facet name="header">ECTS Heimathochschule</f:facet>
-    				<!-- row record -->
-    				#{la.lehrveranstaltungInland1.credits}
-    			</h:column>
- 
-    			<h:column>
-    				<f:facet name="header">LV Partnerhochchschule</f:facet>
-    				#{la.lehrveranstaltungAusland1}
-    			</h:column>
- 
-    			<h:column>
-    				<f:facet name="header">ECTS Partnerhochschule</f:facet>
-    				#{la.lehrveranstaltungAusland1.credits}
-    			</h:column>
-                        <h:column>
-    				<h:commandButton value="Löschen" id="loginButton"
-                                                 action="#{loginBean.positionLoeschen(la)}"/>
-    			</h:column>
-            
-                      
-    		</h:dataTable>
-              </h:panelGrid>
-                 </h:form> 
-        </body>
- </html>
+        <h:form id="editLA"> 
+            <h:panelGrid columns="1" styleClass="borderTable" headerClass="panelHeading" border="2" style="
+                         font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+                         font-size: small;">
+                <h:dataTable value="#{loginBean.la.learningAgreementPosition1}" var="la"	>
+
+                    <h:column>
+                        <!-- column header -->
+                        <f:facet name="header">LV Heimathochschule</f:facet>
+                        <!-- row record -->
+                        #{la.lehrveranstaltungInland1}
+                    </h:column>
+                    <h:column>
+                        <!-- column header -->
+                        <f:facet name="header">ECTS Heimathochschule</f:facet>
+                        <!-- row record -->
+                        #{la.lehrveranstaltungInland1.credits}
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">LV Partnerhochchschule</f:facet>
+                            #{la.lehrveranstaltungAusland1}
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">ECTS Partnerhochschule</f:facet>
+                            #{la.lehrveranstaltungAusland1.credits}
+                    </h:column>
+                    <h:column>
+                        <h:commandButton value="Löschen" id="loginButton"
+                                         action="#{loginBean.positionLoeschen(la)}"/>
+                    </h:column>
+
+
+                </h:dataTable>
+            </h:panelGrid>
+        </h:form><p></p> 
+        <h:form id="Logout">
+            <h:commandButton actionListener="#{loginBean.userLogout}" value="Logout"/>  
+        </h:form>
+    </body>
+</html>
 
