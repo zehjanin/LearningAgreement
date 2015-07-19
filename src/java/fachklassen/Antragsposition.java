@@ -9,13 +9,20 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
+// Enitätsklasse - JPA zur Datenhaltung (Datenhaltungsschicht)  
+
 @Entity
 public class Antragsposition implements Serializable {
 
+    //Festlegung Primärschlüsselattribut
     @Id
     private Long positionsnnummer;
+    
+    //Beziehungen der Tabellen in Datenbank 
     @OneToOne(targetEntity = LearningAgreement.class,mappedBy = "antragsposition1", cascade = CascadeType.ALL)
     private LearningAgreement learningAgreement1;
+    
+     //Mapping der Attribute auf Datenbankspalten
     @Basic
     private String statusAntragsposition;
     @ManyToOne(targetEntity = Antrag.class)
@@ -29,6 +36,7 @@ public class Antragsposition implements Serializable {
 
     }
    
+    // Getter-/ Setter 
     public Long getPositionsnnummer() {
         return this.positionsnnummer;
     }

@@ -9,15 +9,22 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+// Enitätsklasse - JPA zur Datenhaltung (Datenhaltungsschicht)  
+
 @Entity
 public class Antrag implements Serializable {
 
+    //Beziehungen der Tabellen in Datenbank 
     @OneToMany(targetEntity = Antragsposition.class,mappedBy = "antrag")
     private Collection<Antragsposition> antragsposition;
     @OneToOne(targetEntity = Student.class,mappedBy = "antrag")
     private Student student1;
+    
+    //Mapping der Attribute auf Datenbankspalten
     @Basic
     private String auslandsaufenthaltSemester;
+    
+    //Festlegung Primärschlüsselattribut
     @Id
     private Long antragsnummer;
 
@@ -25,6 +32,7 @@ public class Antrag implements Serializable {
 
     }
    
+    //Getter- / Setter-Methoden
     public Collection<Antragsposition> getAntragsposition() {
         return this.antragsposition;
     }
