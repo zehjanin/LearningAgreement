@@ -17,7 +17,7 @@
                 </h:selectOneMenu>
                 <h:selectOneMenu value="#{loginBean.auslandlv}" >
                     <f:selectItems value="#{loginBean.alleLehrveranstaltungenAusland}" var="LVsA" itemValue="#{LVsA}" itemLabel="#{LVsA.name}" />
-                    
+                    <f:converter converterId="categoryConverter" />  
                 </h:selectOneMenu>
                 
                  <h:commandButton value="Speichern" id="speichernButton"
