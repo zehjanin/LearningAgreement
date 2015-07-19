@@ -8,12 +8,14 @@ package controller;
 import fachklassen.Antragsposition;
 import fachklassen.LearningAgreement;
 import fachklassen.LearningAgreementPosition;
+import fachklassen.LehrveranstaltungAusland;
 import fachklassen.LehrveranstaltungInland;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
+import javax.persistence.EntityExistsException;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
@@ -73,6 +75,23 @@ public class LAHandler {
         List<LehrveranstaltungInland> alleLehrveranstaltungenInland;
         alleLehrveranstaltungenInland = query.getResultList();
         return alleLehrveranstaltungenInland;
+    }
+    public void speichereAuslandsveranstaltung(LehrveranstaltungAusland l){
+        try{
+        if(em.find(LehrveranstaltungAusland.class,l.getLehrveranstaltungsnummer())==null){
+            em.persist(l);
+        }
+        else{
+            System.out.println("LV "+l.getName()+" bereits gespeichert");
+        }
+        }
+        catch(NullPointerException e){
+            em.persist(l);
+        }
+    }
+    
+    public LehrveranstaltungAusland findeLVA(Long id){
+        return em.find(LehrveranstaltungAusland.class,id);
     }
     
 

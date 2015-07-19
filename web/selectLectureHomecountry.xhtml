@@ -15,9 +15,13 @@
                 <h:selectOneMenu value="#{loginBean.ausgewaehlteLVInland}">
                     <f:selectItems value="#{loginBean.alleLehrveranstaltungenInland}" var="LVsI" itemValue="#{LVsI.name}" itemLabel="#{LVsI.name}" />
                 </h:selectOneMenu>
-                <h:selectOneMenu value="#{loginBean.ausgewaehlteLVAusland}">
-                    <f:selectItems value="#{loginBean.alleLehrveranstaltungenAusland}" var="LVsA" itemValue="#{LVsA.name}" itemLabel="#{LVsA.name}" />
+                <h:selectOneMenu value="#{loginBean.auslandlv}" >
+                    <f:selectItems value="#{loginBean.alleLehrveranstaltungenAusland}" var="LVsA" itemValue="#{LVsA}" itemLabel="#{LVsA.name}" />
+                    
                 </h:selectOneMenu>
+                
+                 <h:commandButton value="Speichern" id="speichernButton"
+                                         action="#{loginBean.speichereNeueLAPosition}"/>
                  </h:form> 
         </body>
  </html>
