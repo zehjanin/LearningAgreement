@@ -2,6 +2,7 @@ package fachklassen;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
@@ -17,6 +18,7 @@ public class LearningAgreementPosition implements Serializable {
 
     //Festlegung Primärschlüsselattribut (automatische Wertgenerierung)
     @Id
+    @GeneratedValue
     private Long positionsnummer;
     @ManyToOne(targetEntity = LehrveranstaltungInland.class)
     private LehrveranstaltungInland lehrveranstaltungInland1;

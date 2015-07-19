@@ -222,13 +222,26 @@ public class loginBean implements Serializable {
        return "selectLectureHomecountry.xhtml";
         }
    
-      public void speichereNeueLAPosition(){
+      public String speichereNeueLAPosition(){
          ausgewaehlteLVAusland=lAHandler.findeLVA(auslandId);
          ausgewaehlteLVInland=lAHandler.findeLVI(inlandId);
           System.out.println(ausgewaehlteLVAusland.getName());
           System.out.println(ausgewaehlteLVInland.getName());
+          LearningAgreementPosition lpos=new LearningAgreementPosition();
+          lpos.setLehrveranstaltungAusland1(ausgewaehlteLVAusland);
+          lpos.setLehrveranstaltungInland1(ausgewaehlteLVInland);
+          lpos.setLearningAgreement1(la);
+          la.getLearningAgreementPosition1().add(lpos);
+          lAHandler.speichereNeueLAPosition(lpos, la);
+          return "editLA.xhtml";
       }
+    public String zurueck(){
+        return "home.xhtml";
+    }
     
+     public String abbrechen(){
+        return "editLA.xhtml";
+    }
   
       
    

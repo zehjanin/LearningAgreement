@@ -98,6 +98,11 @@ public class LAHandler {
         return em.find(LehrveranstaltungInland.class,id);
     }
     
+    public void speichereNeueLAPosition(LearningAgreementPosition lp,LearningAgreement l){
+        em.merge(l);
+       // em.persist(lp);
+    }
+
     
 
 }
