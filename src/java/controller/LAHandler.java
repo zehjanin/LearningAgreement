@@ -82,6 +82,7 @@ public class LAHandler {
             em.persist(l);
         }
         else{
+            em.merge(l);
             System.out.println("LV "+l.getName()+" bereits gespeichert");
         }
         }

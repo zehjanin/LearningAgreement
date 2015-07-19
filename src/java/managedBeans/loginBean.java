@@ -21,7 +21,6 @@ import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import service.LVAusland;
 import service.WSClient;
 import javax.faces.context.FacesContext;
 import service.LV;
@@ -43,9 +42,21 @@ public class loginBean implements Serializable {
     private Student student;
     private Antragsposition antragsposition;
     private LearningAgreement la;
-    private String auslandlv;
+    private int inlandId;
     private int auslandId;
+    private List <LehrveranstaltungInland> alleLehrveranstaltungenInland;
+    private List <LehrveranstaltungAusland> alleLehrveranstaltungenAusland;
+    private LehrveranstaltungInland ausgewaehlteLVInland;
+    private LehrveranstaltungAusland ausgewaehlteLVAusland;
+    
+    //Konstruktor
+    public loginBean() {
+        student = new Student();
+        la = new LearningAgreement();
+    }
 
+    
+    //getter-/setter
     public int getAuslandId() {
         return auslandId;
     }
@@ -54,28 +65,13 @@ public class loginBean implements Serializable {
         this.auslandId = auslandId;
     }
 
-    public String getAuslandlv() {
-        return auslandlv;
-    }
-
-    public void setAuslandlv(String auslandlv) {
-        this.auslandlv = auslandlv;
-    }
-    private int inlandId;
-
-    public int getInlandId() {
+       public int getInlandId() {
         return inlandId;
     }
 
     public void setInlandId(int inlandId) {
         this.inlandId = inlandId;
     }
-
-  
-    private List <LehrveranstaltungInland> alleLehrveranstaltungenInland;
-    private List <LehrveranstaltungAusland> alleLehrveranstaltungenAusland;
-    
-    private LVAusland lvAusland;
 
     public List<LehrveranstaltungAusland> getAlleLehrveranstaltungenAusland() {
         return alleLehrveranstaltungenAusland;
@@ -100,9 +96,7 @@ public class loginBean implements Serializable {
     public void setAusgewaehlteLVInland(LehrveranstaltungInland ausgewaehlteLVInland) {
         this.ausgewaehlteLVInland = ausgewaehlteLVInland;
     }
-    private LehrveranstaltungInland ausgewaehlteLVInland;
-    private LehrveranstaltungAusland ausgewaehlteLVAusland;
-
+ 
     public LehrveranstaltungAusland getAusgewaehlteLVAusland() {
         return ausgewaehlteLVAusland;
     }
@@ -111,9 +105,6 @@ public class loginBean implements Serializable {
         this.ausgewaehlteLVAusland = ausgewaehlteLVAusland;
     }
     
-
-    //getter-/setter
-
     public Antragsposition getAntragsposition() {
         return antragsposition;
     }
@@ -130,13 +121,7 @@ public class loginBean implements Serializable {
         this.la = la;
     }
 
-    //Objekterzeugung
-    public loginBean() {
-        student = new Student();
-        la = new LearningAgreement();
-    }
-
-    //getter-/setter
+  
     public Student getStudent() {
         return student;
     }

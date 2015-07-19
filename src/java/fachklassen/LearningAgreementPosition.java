@@ -62,11 +62,5 @@ public class LearningAgreementPosition implements Serializable {
         this.lehrveranstaltungInland1 = lehrveranstaltungInland1;
     }
 
-    /*  public String getStatusLearningAgreementPosition() {
-     return this.statusLearningAgreementPosition;
-     }
 
-     public void setStatusLearningAgreementPosition(String statusLearningAgreementPosition) {
-     this.statusLearningAgreementPosition = statusLearningAgreementPosition;
-     }*/
 }
