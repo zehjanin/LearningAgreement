@@ -44,6 +44,15 @@ public class loginBean implements Serializable {
     private Antragsposition antragsposition;
     private LearningAgreement la;
     private String auslandlv;
+    private int auslandId;
+
+    public int getAuslandId() {
+        return auslandId;
+    }
+
+    public void setAuslandId(int auslandId) {
+        this.auslandId = auslandId;
+    }
 
     public String getAuslandlv() {
         return auslandlv;
@@ -51,6 +60,15 @@ public class loginBean implements Serializable {
 
     public void setAuslandlv(String auslandlv) {
         this.auslandlv = auslandlv;
+    }
+    private int inlandId;
+
+    public int getInlandId() {
+        return inlandId;
+    }
+
+    public void setInlandId(int inlandId) {
+        this.inlandId = inlandId;
     }
 
   
@@ -204,9 +222,11 @@ public class loginBean implements Serializable {
        return "selectLectureHomecountry.xhtml";
         }
    
-      public void speichereNeueLAPosition(LehrveranstaltungAusland la){
-          System.out.println(la.getName());
-          //return "editLA.xhtml";
+      public void speichereNeueLAPosition(){
+         ausgewaehlteLVAusland=lAHandler.findeLVA(auslandId);
+         ausgewaehlteLVInland=lAHandler.findeLVI(inlandId);
+          System.out.println(ausgewaehlteLVAusland.getName());
+          System.out.println(ausgewaehlteLVInland.getName());
       }
     
   

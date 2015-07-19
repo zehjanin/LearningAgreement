@@ -90,9 +90,14 @@ public class LAHandler {
         }
     }
     
-    public LehrveranstaltungAusland findeLVA(Long id){
+    public LehrveranstaltungAusland findeLVA(long id){
         return em.find(LehrveranstaltungAusland.class,id);
     }
+    
+    public LehrveranstaltungInland findeLVI(long id){
+        return em.find(LehrveranstaltungInland.class,id);
+    }
+    
     
 
 }

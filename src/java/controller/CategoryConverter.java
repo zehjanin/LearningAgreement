@@ -18,7 +18,7 @@ import managedBeans.loginBean;
  *
  * @author Janina
  */
-@FacesConverter(forClass=LehrveranstaltungAusland.class, value="categoryConverter")
+@FacesConverter(value="categoryConverter")
 public class CategoryConverter implements Converter {
       @EJB
     private LAHandler lahandler;
@@ -31,7 +31,7 @@ public class CategoryConverter implements Converter {
             return null;
         }
      else{
-        Long id = new Long (value);
+        Integer id = new Integer (value);
         System.out.println(value);
         return lahandler.findeLVA(id);
      }
