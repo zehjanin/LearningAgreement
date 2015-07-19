@@ -92,11 +92,14 @@
 
                 </h:dataTable>
             </h:panelGrid>
-                  <h:commandButton value="Position hinzufügen" id="addButton"
-                                                 action="#{loginBean.positionHinzufuegen()}"/>
+            <h:commandButton value="Zurück" id="zurueckButton"
+                             action="#{loginBean.}"/>
+            <h:commandButton value="Position hinzufügen" id="addButton"
+                             action="#{loginBean.positionHinzufuegen()}"/>
         </h:form><p></p> 
         <h:form id="Logout">
-            <h:commandButton actionListener="#{loginBean.userLogout}" value="Logout"/>  
+            <h:commandButton actionListener="#{loginBean.userLogout}" value="Logout"/>
+
         </h:form>
     </body>
 </html>

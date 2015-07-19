@@ -3,26 +3,48 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core">
-        <head>
-            <link rel="stylesheet" type="text/css" href="basic.css"/>
-            <title>
-                <h:outputText value="Position hinzufügen"/>
-            </title>
-        </head>
-        <body>
-           
-            <h:form id="selectHomeLecture">
-                <h:selectOneMenu value="#{loginBean.inlandId}">
-                    <f:selectItems value="#{loginBean.alleLehrveranstaltungenInland}" var="LVsI" itemValue="#{LVsI.lehrveranstaltungsnummer}" itemLabel="#{LVsI.name}" />
-                </h:selectOneMenu>
-                <h:selectOneMenu value="#{loginBean.auslandId}" >
-                    <f:selectItems value="#{loginBean.alleLehrveranstaltungenAusland}" var="LVsA" itemValue="#{LVsA.lehrveranstaltungsnummer}" itemLabel="#{LVsA.name}" />
-                    
-                </h:selectOneMenu>
-                
-                 <h:commandButton value="Speichern" id="speichernButton"
-                                         action="#{loginBean.speichereNeueLAPosition}"/>
-                 </h:form> 
-        </body>
- </html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="basic.css"/>
+        <title>
+            <h:outputText value="Position hinzufügen"/>
+        </title>
+    </head>
+    <body> 
+        <h:graphicImage url="https://dl.dropboxusercontent.com/u/31656028/Logo_HSPforzheim.png" width="50%"></h:graphicImage><p></p>                              
+        <h:form id="selectHomeLecture">
+            <h:outputText value="Kursauswahl " style="font-weight:bold"/><p></p>
+            <h:outputText value="Bitte wählen Sie Ihre Lehrveranstaltungen im Ausland korresponierend zu den Lehrveranstaltungen im Inland aus. Klicken Sie anschließend auf Speichern."/><p></p>
+            <h:dataTable cellpadding="2" border="2">
+                <h:column>
+                    <f:facet name ="header" >       
+                        <h:outputText value="Kurse Ausland"/> 
+                    </f:facet>
+
+                    <f:facet name ="footer">  
+                        <h:selectOneMenu value="#{loginBean.inlandId}">
+                            <f:selectItems value="#{loginBean.alleLehrveranstaltungenInland}" var="LVsI" itemValue="#{LVsI.lehrveranstaltungsnummer}" itemLabel="#{LVsI.name}" />
+                        </h:selectOneMenu>
+                    </f:facet>
+                </h:column>
+                <h:column>
+                    <f:facet name ="header" >       
+                        <h:outputText value="Kurse Inland"/> 
+                    </f:facet>
+                    <f:facet name ="footer">  
+                        <h:selectOneMenu value="#{loginBean.auslandId}" >
+                            <f:selectItems value="#{loginBean.alleLehrveranstaltungenAusland}" var="LVsA" itemValue="#{LVsA.lehrveranstaltungsnummer}" itemLabel="#{LVsA.name}" />
+
+                        </h:selectOneMenu>
+                    </f:facet>
+                </h:column>
+            </h:dataTable><p></p>
+
+            <h:commandButton value="Speichern" id="speichernButton"
+                             action="#{loginBean.speichereNeueLAPosition}"/>
+            
+            <h:commandButton value="Abbrechen" id="abbrechenButton"
+                             action="#{loginBean.}"/>
+        </h:form> 
+    </body>
+</html>
 
