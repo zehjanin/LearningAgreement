@@ -48,11 +48,15 @@
     				<h:commandButton value="Löschen" id="loginButton"
                                                  action="#{loginBean.positionLoeschen(la)}"/>
     			</h:column>
-            
+                
                       
     		</h:dataTable>
-              
-                 </h:form> 
+                
+                  <h:commandButton value="Position hinzufügen" id="addButton"
+                                                 action="#{loginBean.positionHinzufuegen()}"/>
+                      
+                       
+                </h:form> 
         </body>
  </html>
 

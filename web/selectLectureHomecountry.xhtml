@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+        <head>
+            <link rel="stylesheet" type="text/css" href="basic.css"/>
+            <title>
+                <h:outputText value="Position hinzufügen"/>
+            </title>
+        </head>
+        <body>
+           
+            <h:form id="selectHomeLecture">
+                <h:selectOneMenu value="#{loginBean.ausgewaehlteLVInland}">
+                    <f:selectItems value="#{loginBean.alleLehrveranstaltungenInland}" var="LVsI" itemValue="#{LVsI.name}" itemLabel="#{LVsI.name}" />
+                </h:selectOneMenu>
+                <h:selectOneMenu value="#{loginBean.ausgewaehlteLVAusland}">
+                    <f:selectItems value="#{loginBean.alleLehrveranstaltungenAusland}" var="LVsA" itemValue="#{LVsA.name}" itemLabel="#{LVsA.name}" />
+                </h:selectOneMenu>
+                 </h:form> 
+        </body>
+ </html>
+

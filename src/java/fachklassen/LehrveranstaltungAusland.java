@@ -12,8 +12,7 @@ public class LehrveranstaltungAusland extends Lehrveranstaltung implements Seria
 
     @OneToMany(targetEntity = LearningAgreementPosition.class,mappedBy = "lehrveranstaltungAusland1")
     private Collection<LearningAgreementPosition> learningAgreementPosition1;
-  //  @ElementCollection
-    private int ectsAusland;
+  
 
     public LehrveranstaltungAusland() {
 
@@ -27,11 +26,4 @@ public class LehrveranstaltungAusland extends Lehrveranstaltung implements Seria
         this.learningAgreementPosition1 = learningAgreementPosition1;
     }
    
-    public int getEctsAusland() {
-        return this.ectsAusland;
-    }
-
-    public void setEctsAusland(int ectsAusland) {
-        this.ectsAusland = ectsAusland;
-    }
 }
